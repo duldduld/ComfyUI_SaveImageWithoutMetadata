@@ -34,11 +34,20 @@ app.registerExtension({
                             return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
                         });
 
-                        val = val.replace(/%([^% \.]+)\.([^% \.]+)%/g, (match, nodeTitleOrId, widgetName) => {
-                            let targetNode = app.graph._nodes.find(n => n.title === nodeTitleOrId || n.id == nodeTitleOrId);
+                        val = val.replace(/%([^%]+)\.([^%]+)%/g, (match, nodeTitleOrId, widgetName) => {
+                            const targetTitle = nodeTitleOrId.trim();
+                            const targetWidgetName = widgetName.trim();
+
+                            let targetNode = app.graph._nodes.find(n => 
+                                (n.title && n.title.trim() === targetTitle) || 
+                                (n.id && n.id.toString() === targetTitle)
+                            );
+
                             if (targetNode) {
-                                const targetWidget = targetNode.widgets?.find(w => w.name === widgetName);
-                                if (targetWidget) return targetWidget.value;
+                                const targetWidget = targetNode.widgets?.find(w => w.name === targetWidgetName);
+                                if (targetWidget) {
+                                    return String(targetWidget.value); 
+                                }
                             }
                             return match;
                         });
