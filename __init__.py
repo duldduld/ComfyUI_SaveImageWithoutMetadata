@@ -1,5 +1,4 @@
 from nodes import SaveImage
-import folder_paths
 
 class ComfyUI_SaveImageWithoutMetadata(SaveImage):
     def __init__(self):
