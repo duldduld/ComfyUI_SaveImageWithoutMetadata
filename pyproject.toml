@@ -1,0 +1,17 @@
+[project]
+name = "SaveImageWithoutMetadata"
+description = "Save image like the native node in ComfyUI but without metadata, supporting filename_prefix with variables like %date:yyyy-MM-dd% and %KSampler.seed% to include values from nodes"
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/duldduld/ComfyUI_SaveImageWithoutMetadata"
+#  Used by Comfy Registry https://registry.comfy.org
+Documentation = "https://github.com/duldduld/ComfyUI_SaveImageWithoutMetadata/wiki"
+"Bug Tracker" = "https://github.com/duldduld/ComfyUI_SaveImageWithoutMetadata/issues"
+
+[tool.comfy]
+PublisherId = "duldduld"
+DisplayName = "ComfyUI_SaveImageWithoutMetadata"
+Icon = ""
+includes = []
