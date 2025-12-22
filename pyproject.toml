@@ -1,7 +1,7 @@
 [project]
 name = "SaveImageWithoutMetadata"
-description = "Save image like the native node in ComfyUI but without metadata, supporting filename_prefix with variables like %date:yyyy-MM-dd% and %KSampler.seed% to include values from nodes"
-version = "1.0.2"
+description = "Save image like the native node in ComfyUI but without metadata, supporting filename_prefix with variables like %date:yyyy-MM-dd_hh-mm-ss%, %date:yy-M-d_h-m-s% and %KSampler.seed% to include values from nodes"
+version = "1.1.0"
 license = {file = "LICENSE"}
 
 [project.urls]

@@ -1,9 +1,6 @@
 from nodes import SaveImage
 
 class ComfyUI_SaveImageWithoutMetadata(SaveImage):
-    def __init__(self):
-        super().__init__()
-
     @classmethod
     def INPUT_TYPES(s):
         return SaveImage.INPUT_TYPES()
@@ -11,9 +8,10 @@ class ComfyUI_SaveImageWithoutMetadata(SaveImage):
     FUNCTION = "save_images_without_meta"
 
     def save_images_without_meta(self, images, filename_prefix="ComfyUI", **kwargs):
+        kwargs = kwargs.copy()
         kwargs["prompt"] = None
         kwargs["extra_pnginfo"] = None
-        
+
         return self.save_images(images, filename_prefix, **kwargs)
 
 NODE_CLASS_MAPPINGS = {"ComfyUI_SaveImageWithoutMetadata": ComfyUI_SaveImageWithoutMetadata}
